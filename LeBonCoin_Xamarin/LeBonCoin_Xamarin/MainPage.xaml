@@ -5,10 +5,7 @@
              x:Class="LeBonCoin_Xamarin.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Test branche Wilfried" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        
     </StackLayout>
 
 </ContentPage>
