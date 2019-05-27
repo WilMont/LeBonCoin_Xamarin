@@ -4,8 +4,26 @@
              xmlns:local="clr-namespace:LeBonCoin_Xamarin"
              x:Class="LeBonCoin_Xamarin.MainPage">
 
-    <StackLayout>
+    
+
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         
-    </StackLayout>
+        <StackLayout>
+        <Image Source="leboncoin.png" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+        </StackLayout>
+        
+        <Button Text="Test" Grid.Column="1" Grid.Row="1"/>
+    </Grid>
 
 </ContentPage>

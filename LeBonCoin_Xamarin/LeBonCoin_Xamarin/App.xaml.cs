@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,6 +8,21 @@ namespace LeBonCoin_Xamarin
 {
     public partial class App : Application
     {
+
+        static LeBonCoinDatabase database;
+
+        public static LeBonCoinDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new LeBonCoinDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "LeBonCoin.db3"));
+                }
+                return database;
+            }
+        }
+
         public App()
         {
             InitializeComponent();
