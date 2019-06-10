@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeBonCoin_Xamarin.View;
+using System;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -8,26 +9,28 @@ namespace LeBonCoin_Xamarin
 {
     public partial class App : Application
     {
-
-        static LeBonCoinDatabase database;
-
-        public static LeBonCoinDatabase Database
-        {
-            get
-            {
-                if (database == null)
-                {
-                    database = new LeBonCoinDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "LeBonCoin.db3"));
-                }
-                return database;
-            }
-        }
+        public static bool EstConnecte { get; set; }
 
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            if (!EstConnecte)
+            {
+                MainPage = new NavigationPage(new ConnexionView());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new MainPage());
+            }
+
+            //SET PRIMARY TOOLBAR COLOR
+            Current.Resources = new ResourceDictionary();
+            Color xamarin_color = Color.FromHex("#E86528");
+            var navigationStyle = new Style(typeof(NavigationPage));
+            var barBackgroundColorSetter = new Setter { Property = NavigationPage.BarBackgroundColorProperty, Value = xamarin_color };
+            navigationStyle.Setters.Add(barBackgroundColorSetter);
+            Current.Resources.Add(navigationStyle);
         }
 
         protected override void OnStart()

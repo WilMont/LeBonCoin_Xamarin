@@ -4,11 +4,15 @@
              xmlns:local="clr-namespace:LeBonCoin_Xamarin"
              x:Class="LeBonCoin_Xamarin.MainPage">
 
-    
 
-    
+
+
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -17,13 +21,19 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <StackLayout>
-        <Image Source="leboncoin.png" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+            <Image Source="leboncoin.png" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
         </StackLayout>
-        
-        <Button Text="Test" Grid.Column="1" Grid.Row="1"/>
+
+        <Entry Placeholder="Login" Grid.Row="2" Grid.Column="2"/>
+        <Entry Placeholder="Mot de passe" IsPassword="True"/>
+
     </Grid>
 
 </ContentPage>

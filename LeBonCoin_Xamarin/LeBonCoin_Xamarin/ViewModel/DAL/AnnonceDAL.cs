@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LeBonCoin_Xamarin
+namespace LeBonCoin_Xamarin.ViewModel.DAL
 {
-    class Data
+    public class AnnonceDAL
     {
     }
 }
