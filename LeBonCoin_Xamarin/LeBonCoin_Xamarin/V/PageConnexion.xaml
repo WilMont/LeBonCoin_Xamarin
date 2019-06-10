@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LeBonCoin_Xamarin.NewFolder1.PageConnexion">
+  <ContentView.Content>
+        <TableView Intent="Form">
+            <TableRoot>
+                <TableSection>
+                    <EntryCell Label="Login"></EntryCell>
+                    <EntryCell Label="Mot de passe"></EntryCell>
+                </TableSection>
+
+            </TableRoot>
+        </TableView>
+    </ContentView.Content>
+</ContentView>

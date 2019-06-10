@@ -5,10 +5,13 @@
              x:Class="LeBonCoin_Xamarin.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Plop!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        
+        <!--barre de recherche-->
+        <SearchBar x:Name="SearchAnnonce" SearchButtonPressed="SearchAnnonce_OnSearchButtonPressed"/>
+        
+        <!--intégration de la liste des catégories-->
+        <ListView x:Name="SearchAnnonceList"/>
+
     </StackLayout>
 
 </ContentPage>
