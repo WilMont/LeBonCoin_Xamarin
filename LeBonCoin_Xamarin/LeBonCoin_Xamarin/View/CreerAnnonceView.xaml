@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:LeBonCoin_Xamarin.ViewModel"
+             x:Class="LeBonCoin_Xamarin.View.CreerAnnonceView">
+    <ContentPage.BindingContext>
+        <vm:ListeAnnoncesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Entry Placeholder="Titre de l'annonce..." Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="11"/>
+            <Editor Placeholder="Description de l'annonce..." Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="11"/>
+            <Entry Placeholder="Prix" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"/>
+            <Entry Placeholder="Téléphone" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5"/>
+            <Picker Title="Catégorie" TextColor="Black" ItemsSource="{Binding ListeCategories}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="11" />
+
+            <Button Text="Créer l'annonce" BackgroundColor="#F56B2A" Grid.Row="9" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="11"/>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

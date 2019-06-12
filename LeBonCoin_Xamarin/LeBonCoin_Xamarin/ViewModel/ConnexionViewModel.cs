@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LeBonCoin_Xamarin.Interfaces;
+using LeBonCoin_Xamarin.ViewModel.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -10,6 +12,7 @@ namespace LeBonCoin_Xamarin.ViewModel
     public class ConnexionViewModel : INotifyPropertyChanged
     {
         public ICommand ConnexionCommand { private set; get; }
+        public UtilisateurDAL utilisateurDAL = new UtilisateurDAL();
 
         //Propriétés du formulaire de connexion
         #region Propriétés formulaire connexion
@@ -43,36 +46,33 @@ namespace LeBonCoin_Xamarin.ViewModel
 
         public ConnexionViewModel()
         {
+            ConnexionCommand = new Command(ConnexionExecute, CanExecute);
+        }
 
-            ConnexionCommand = new Command(
-            execute: () =>
+        private void ConnexionExecute() // Ce que la commande exécute.
+        {
+
+
+            try
             {
-
-
-                //IsEditing = true;
-                RefreshCanExecutes();
-            },
-            canExecute: () =>
-            {
-                if(string.IsNullOrEmpty(LoginEntre) || string.IsNullOrEmpty(MotDePasseEntre))
+                if(utilisateurDAL.ConnexionUtilisateur(this.LoginEntre, this.MotDePasseEntre) == true)
                 {
-                    return false;
+                    App.EstConnecte = true;
                 }
-                else
-                {
-                    return true;
-                }
-            });
-
-            void RefreshCanExecutes()
+            }
+            catch (Exception e)
             {
-                (ConnexionCommand as Command).ChangeCanExecute();
+                DependencyService.Get<IMessage>().ShortAlert(e.Message);
+                DependencyService.Get<IMessage>().ShortAlert("Une erreur est survenue"); // Affichage d'un message d'erreur.
             }
 
-
-
         }
-        
+
+        private bool CanExecute() // Les conditions pour que la commande puisse s'exécuter.
+        {
+            return true;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)
         {

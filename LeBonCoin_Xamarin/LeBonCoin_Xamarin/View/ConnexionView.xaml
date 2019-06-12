@@ -29,7 +29,7 @@
 
             <Entry Placeholder="Login" Text="{Binding LoginEntre}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" HeightRequest="50" VerticalOptions="Center"/>
             <Entry Placeholder="Mot de passe" Text="{Binding MotDePasseEntre}" IsPassword="True" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" VerticalOptions="Center"/>
-            <Button Text="Se connecter" Command="{Binding ConnexionCommand}" Grid.Row="4" Grid.Column="1" HeightRequest="50" WidthRequest="50" BackgroundColor="#E86528"/>
+            <Button Text="Se connecter" Command="{Binding ConnexionCommand}" Clicked="Btn_PageAnnonces" Grid.Row="4" Grid.Column="1" HeightRequest="50" WidthRequest="50" BackgroundColor="#E86528"/>
 
             <Editor Text="Vous n'avez pas encore de compte ?" Grid.Row="5" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand"/>
             <Button Text="S'inscrire" Grid.Row="5" Grid.ColumnSpan="3" BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Blue" HorizontalOptions="CenterAndExpand" Clicked="Btn_PageInscription"/>

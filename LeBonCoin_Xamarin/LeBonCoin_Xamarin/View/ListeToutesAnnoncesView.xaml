@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:LeBonCoin_Xamarin.ViewModel"
+             x:Class="LeBonCoin_Xamarin.View.ListeToutesAnnoncesView">
+    <ContentPage.BindingContext>
+        <vm:ListeAnnoncesViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <SearchBar  Placeholder="Rechercher..." TextColor="Black" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" BackgroundColor="#F56B2A"/>
+        <Button Text="+ Ajouter" Grid.Row="0" TextColor="#F56B2A" Grid.Column="2" Grid.ColumnSpan="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BorderRadius="0" BackgroundColor="WhiteSmoke" Clicked="Btn_PageCreerAnnonce"/>
+
+        <ListView x:Name="ListeToutesAnnonces" HasUnevenRows="True" ItemsSource="{Binding ListeToutesAnnonces}" BackgroundColor="WhiteSmoke" Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid>
+
+
+                            <Label Text="{Binding Titre}" FontAttributes="Bold" FontSize="Medium" Grid.Column="0" Grid.Row="0"/>
+
+                            <Label Text="{Binding Description}" FontAttributes="Bold" FontSize="Medium" Grid.Column="0" Grid.Row="1"/>
+
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+</ContentPage>

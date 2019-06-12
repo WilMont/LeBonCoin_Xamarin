@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace LeBonCoin_Xamarin.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ListeAnnoncesView : ContentPage
+	public partial class ProfilView : ContentPage
 	{
-		public ListeAnnoncesView ()
+		public ProfilView ()
 		{
 			InitializeComponent ();
 		}

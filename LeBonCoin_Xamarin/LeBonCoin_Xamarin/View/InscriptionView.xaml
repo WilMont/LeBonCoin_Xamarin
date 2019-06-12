@@ -33,7 +33,7 @@
             <Entry Placeholder="Prénom" Text="{Binding PrenomEntre}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" VerticalOptions="Center"/>
             <Entry Placeholder="Login" Text="{Binding LoginEntre}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" VerticalOptions="Center"/>
             <Entry Placeholder="Mot de passe" Text="{Binding MotDePasseEntre}" IsPassword="True" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" VerticalOptions="Center"/>
-            <Entry Placeholder="Confirmer" Text="{Binding MotDePasseEntreConfirmation}" IsPassword="True" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1" VerticalOptions="Center"/>
+            <!--<Entry Placeholder="Confirmer" Text="{Binding MotDePasseEntreConfirmation}" IsPassword="True" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1" VerticalOptions="Center"/> -->
 
             <Button Text="S'inscrire" Grid.Row="6" Grid.Column="1" Command="{Binding InscriptionCommand}" BackgroundColor="#E86528"/>
 

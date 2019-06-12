@@ -9,6 +9,7 @@ namespace LeBonCoin_Xamarin.Model
     [Table("Annonces")]
     public class Annonce : INotifyPropertyChanged
     {
+        // L'identifiant de l'objet vendu.
         private int _id;
         [PrimaryKey, AutoIncrement]
         public int Id
@@ -24,7 +25,7 @@ namespace LeBonCoin_Xamarin.Model
             }
         }
 
-        // Le nom de la catégorie.
+        // Le titre de l'objet vendu.
         private string _titre;
         [NotNull]
         [MaxLength(50)]
@@ -41,7 +42,7 @@ namespace LeBonCoin_Xamarin.Model
             }
         }
 
-        // Le nom de la catégorie.
+        // La description de l'objet vendu.
         private string _description;
         [NotNull]
         public string Description
@@ -57,7 +58,7 @@ namespace LeBonCoin_Xamarin.Model
             }
         }
 
-        // Le nom de la catégorie.
+        // Le prix de l'objet vendu.
         private decimal _prix;
         [NotNull]
         public decimal Prix
@@ -73,7 +74,7 @@ namespace LeBonCoin_Xamarin.Model
             }
         }
 
-        // Le nom de la catégorie.
+        // Le numéro de téléphone pour contacter le vendeur.
         private string _numTel;
         [NotNull]
         [MaxLength(20)]
@@ -90,7 +91,7 @@ namespace LeBonCoin_Xamarin.Model
             }
         }
 
-        // Le nom de la catégorie.
+        // Le nom de la catégorie à laquelle appartient l'objet en vente.
         private Categorie _categorie;
         [NotNull]
         public Categorie Categorie
@@ -103,6 +104,22 @@ namespace LeBonCoin_Xamarin.Model
             {
                 this._categorie = value;
                 OnPropertyChanged(nameof(Categorie));
+            }
+        }
+
+        // L'auteur de l'annonce (le vendeur).
+        private Utilisateur _auteur;
+        [NotNull]
+        public Utilisateur Auteur
+        {
+            get
+            {
+                return _auteur;
+            }
+            set
+            {
+                this._auteur = value;
+                OnPropertyChanged(nameof(Auteur));
             }
         }
 

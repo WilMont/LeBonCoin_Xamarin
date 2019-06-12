@@ -59,7 +59,7 @@ namespace LeBonCoin_Xamarin.Model
             }
         }
 
-        // Le login de l'utilisateur (pseudo utilisé s'identifier).
+        // Le login de l'utilisateur (pseudo utilisé pour s'identifier).
         private string _login;
         [NotNull]
         [MaxLength(20)]

@@ -1,4 +1,5 @@
-﻿using LeBonCoin_Xamarin.Model;
+﻿using LeBonCoin_Xamarin.Interfaces;
+using LeBonCoin_Xamarin.Model;
 using LeBonCoin_Xamarin.ViewModel.DAL;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,12 @@ namespace LeBonCoin_Xamarin.ViewModel
     public class InscriptionViewModel: INotifyPropertyChanged
     {
         public ICommand InscriptionCommand { set; get; }
+        public UtilisateurDAL utilisateurDAL = new UtilisateurDAL();
 
-        //Propriétés du formulaire de connexion
+        //Propriétés du formulaire de connexion.
         #region Propriétés formulaire connexion
 
+        // Nom que l'utilisateur rentre dans le champs correspondant.
         private string _nomEntre;
         public string NomEntre
         {
@@ -34,6 +37,7 @@ namespace LeBonCoin_Xamarin.ViewModel
             }
         }
 
+        // Prénom que l'utilisateur rentre dans le champs correspondant.
         private string _prenomEntre;
         public string PrenomEntre
         {
@@ -51,6 +55,7 @@ namespace LeBonCoin_Xamarin.ViewModel
             }
         }
 
+        // Login que l'utilisateur rentre dans le champs correspondant.
         private string _loginEntre;
         public string LoginEntre
         {
@@ -68,6 +73,7 @@ namespace LeBonCoin_Xamarin.ViewModel
             }
         }
 
+        // Mot de passe que l'utilisateur rentre dans le champs correspondant.
         private string _motDePasseEntre;
         public string MotDePasseEntre
         {
@@ -85,6 +91,7 @@ namespace LeBonCoin_Xamarin.ViewModel
             }
         }
 
+        // Confirmation du mot de passe entré.
         private string _motDePasseEntreConfirmation;
         public string MotDePasseEntreConfirmation
         {
@@ -108,27 +115,34 @@ namespace LeBonCoin_Xamarin.ViewModel
             InscriptionCommand = new Command(InscriptionExecute, CanExecute);
         }
 
-            private void InscriptionExecute()
+            private void InscriptionExecute() // Ce que la commande exécute.
             {
-                Utilisateur utilisateur = new Utilisateur {
-                    Nom = NomEntre,
-                    Prenom = PrenomEntre,
-                    Login = LoginEntre,
-                    MotDePasse = MotDePasseEntre
+                
+
+            try
+            {
+                Utilisateur utilisateur = new Utilisateur // On crée un nouvel utilisateur avec les informations renseignées.
+                {
+                    Nom = this.NomEntre,
+                    Prenom = this.PrenomEntre,
+                    Login = this.LoginEntre,
+                    MotDePasse = this.MotDePasseEntre
                 };
-                UtilisateurDAL.SaveCustomer(utilisateur);
+
+                utilisateurDAL.SauvegarderUtilisateur(utilisateur); // On insère cet utilisateur dans la table correspondante.
+                DependencyService.Get<IMessage>().ShortAlert("Inscription réussie"); // Affichage d'un message de succès.
+            }
+            catch(Exception e)
+            {
+                DependencyService.Get<IMessage>().ShortAlert(e.Message);
+                DependencyService.Get<IMessage>().ShortAlert("Une erreur est survenue"); // Affichage d'un message d'erreur.
+            }
+            
             }
 
-            private bool CanExecute()
+            private bool CanExecute() // Les conditions pour que la commande puisse s'exécuter.
             {
-                if (string.IsNullOrEmpty(NomEntre) || string.IsNullOrEmpty(PrenomEntre) || string.IsNullOrEmpty(LoginEntre) || string.IsNullOrEmpty(MotDePasseEntre) || (MotDePasseEntre != MotDePasseEntreConfirmation) )
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+            return true;
             }
 
 

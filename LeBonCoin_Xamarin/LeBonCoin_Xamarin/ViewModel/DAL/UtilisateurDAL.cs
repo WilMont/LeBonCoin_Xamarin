@@ -42,7 +42,7 @@ namespace LeBonCoin_Xamarin.ViewModel.DAL
         {
             lock (collisionLock)
             {
-                return this.database.Table<Utilisateur>().FirstOrDefault(Utilisateur => Utilisateur.Id == id);
+                return database.Table<Utilisateur>().FirstOrDefault(Utilisateur => Utilisateur.Id == id);
             }
         }
 
@@ -75,6 +75,26 @@ namespace LeBonCoin_Xamarin.ViewModel.DAL
             }
             this.Utilisateurs.Remove(utilisateurInstance);
             return id;
+        }
+
+        public bool ConnexionUtilisateur(string loginConnexion, string motDePasseConnexion)
+        {
+            bool condition = false;
+            lock (collisionLock)
+            {
+                foreach(var utilisateurInstance in this.Utilisateurs)
+                {
+                    if (utilisateurInstance.Login == loginConnexion && utilisateurInstance.MotDePasse == motDePasseConnexion){
+                        condition = true;
+                        App.UtilisateurCourant = utilisateurInstance;
+                    }
+                    else
+                    {
+                        condition = false;
+                    }
+                }
+                return condition;
+            }
         }
 
     }

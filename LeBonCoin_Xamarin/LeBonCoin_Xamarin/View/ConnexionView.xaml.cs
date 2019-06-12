@@ -21,5 +21,10 @@ namespace LeBonCoin_Xamarin.View
         {
             Navigation.PushAsync(new InscriptionView());
         }
+
+        private void Btn_PageAnnonces(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PageOngletsPrincipauxView());
+        }
     }
 }
