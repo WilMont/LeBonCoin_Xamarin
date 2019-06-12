@@ -25,6 +25,22 @@ namespace LeBonCoin_Xamarin
 
                 SearchAnnonceList.ItemsSource = _categories;
 
+               //numéro cliquable
+
+               //création de l'action "tap sur un élément"
+               var tapGestureRecognizer = new TapGestureRecognizer();
+
+               tapGestureRecognizer.Tapped += (s, e) => {
+                   //la méthode qui ouvre la fonction téléphone
+                   Device.OpenUri(new Uri("tel:0641091509"));
+               };
+
+               //liaison de l'action et du label
+               NAppel.GestureRecognizers.Add(tapGestureRecognizer);
+
+               
+            
+
             }
 
             //la recherche retourne le terme correspondant de la viewlist, en ajoutant du binding on doit pouvoir afficher des annonces à la place de juste un mot
@@ -36,6 +52,9 @@ namespace LeBonCoin_Xamarin
 
                 SearchAnnonceList.ItemsSource = searchResult;
             }
+
+           
+
         
     }
 }

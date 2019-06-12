@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LeBonCoin_Xamarin.V
+namespace LeBonCoin_Xamarin.NewFolder1
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PageInscription : ContentView
+	public partial class PageCreationAnnonce : ContentPage
 	{
-		public PageInscription ()
+		public PageCreationAnnonce ()
 		{
 			InitializeComponent ();
 		}

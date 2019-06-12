@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace LeBonCoin_Xamarin.NewFolder1
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PageCreationAnnonce : ContentView
+	public partial class PageConnexion : ContentPage
 	{
-		public PageCreationAnnonce ()
+		public PageConnexion ()
 		{
 			InitializeComponent ();
 		}

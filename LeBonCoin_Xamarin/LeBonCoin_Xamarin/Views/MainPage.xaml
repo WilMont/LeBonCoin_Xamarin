@@ -12,6 +12,8 @@
         <!--intégration de la liste des catégories-->
         <ListView x:Name="SearchAnnonceList"/>
 
+        <Label x:Name="NAppel">0641091509</Label>
+
     </StackLayout>
 
 </ContentPage>
