@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeBonCoin_Xamarin.Model;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -22,5 +23,12 @@ namespace LeBonCoin_Xamarin.View
         {
             Navigation.PushAsync(new MesAnnoncesView());
         }
+
+        private async void ListeToutesAnnonces_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Annonce selectedAnnonce = this.ListeToutesAnnonces.SelectedItem as Annonce;
+            await this.Navigation.PushAsync(new PageAnnonceView(selectedAnnonce));
+        }
+
     }
 }

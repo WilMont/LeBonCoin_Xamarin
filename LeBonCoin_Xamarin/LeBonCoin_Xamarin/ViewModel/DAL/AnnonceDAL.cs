@@ -102,6 +102,17 @@ namespace LeBonCoin_Xamarin.ViewModel.DAL
             }
         }
 
+        public IEnumerable<Annonce> GetAnnoncesResultatRecherche(string recherche)
+        {
+            lock (collisionLock)
+            {
+                var query = from annonce in database.Table<Annonce>()
+                            where (annonce.Titre.Contains(recherche))
+                            select annonce;
+                return query.AsEnumerable();
+            }
+        }
+
         public int SauvegarderAnnonce(Annonce annonceInstance)
         {
             lock (collisionLock)

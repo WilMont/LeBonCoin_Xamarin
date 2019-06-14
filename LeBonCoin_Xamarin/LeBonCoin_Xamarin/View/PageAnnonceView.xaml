@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:LeBonCoin_Xamarin.ViewModel"
+             x:Class="LeBonCoin_Xamarin.View.PageAnnonceView">
+
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical">
+
+            <Label Text="{Binding Titre}" FontAttributes="Bold" FontSize="Large" />
+            
+            <Label Text="{Binding Description}" FontSize="Medium" />
+            
+            <Label Text="{Binding Prix, StringFormat='Prix : {0:N}€'}"
+               HorizontalOptions="End"
+               FontAttributes="Bold" FontSize="Medium" />
+
+            <Label Text="{Binding Categorie}" FontSize="Medium" />
+            <Label x:Name="nAppel" Text="{Binding NumTel}" FontSize="Medium" TextColor="Green" />
+            
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

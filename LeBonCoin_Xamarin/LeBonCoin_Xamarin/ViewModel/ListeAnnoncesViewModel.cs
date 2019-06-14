@@ -45,6 +45,21 @@ namespace LeBonCoin_Xamarin.ViewModel
             }
         }
 
+        // Propriété pour l'affichage détaillé d'une annonce.
+        private Annonce _AnnonceSelectionnee;
+        public Annonce AnnonceSelectionnee
+        {
+            get { return this._AnnonceSelectionnee; }
+            set
+            {
+                if (this._AnnonceSelectionnee != value)
+                {
+                    this._AnnonceSelectionnee = value;
+                    OnPropertyChanged(nameof(AnnonceSelectionnee));
+                }
+            }
+        }
+
         // Propriétés pour la création d'une annonce.
         #region Création Annonce
 
@@ -161,10 +176,7 @@ namespace LeBonCoin_Xamarin.ViewModel
             ObservableCollection<Annonce> CollectionAnnoncesUtilisateur = new ObservableCollection<Annonce>(annonceDAL.GetAnnoncesUtilisateur());
             this.ListeMesAnnonces = CollectionAnnoncesSaufUtilisateur;
 
-
-
-            //annonceDAL.IEnumerableVersListeAnnonce(annonceDAL.GetAnnoncesSaufUtilisateur(), this.ListeToutesAnnonces);
-            //annonceDAL.IEnumerableVersListeAnnonce(annonceDAL.GetAnnoncesUtilisateur(), this.ListeMesAnnonces);
+            
             CreationAnnonceCommand = new Command(CreationAnnonceExecute, CanExecute);
             
         }
