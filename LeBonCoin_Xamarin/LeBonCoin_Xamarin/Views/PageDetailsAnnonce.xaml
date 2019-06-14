@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LeBonCoin_Xamarin.NewFolder1.PageDetailsAnnonce">
+             x:Class="LeBonCoin_Xamarin.Views.PageDetailsAnnonce">
   <ContentPage.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
+            <Label Text="{Binding Titre}"/>
+            <Label Text="{Binding Description}"/>
+            <Label Text="{Binding Prix, StringFormat='Prix : {0:F2} €' }"/>
+            <Label x:Name="nAppel"  Text="{Binding NumeroT}"/>
+            <Label Text="{Binding Categorie}"/>
+        </StackLayout>
   </ContentPage.Content>
 </ContentPage>

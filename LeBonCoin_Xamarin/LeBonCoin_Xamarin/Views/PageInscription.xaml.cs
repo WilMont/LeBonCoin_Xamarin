@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LeBonCoin_Xamarin.V
+namespace LeBonCoin_Xamarin.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PageInscription : ContentPage

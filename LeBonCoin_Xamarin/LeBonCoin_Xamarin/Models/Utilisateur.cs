@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LeBonCoin_Xamarin.M
+namespace LeBonCoin_Xamarin.Models
 {
-    class Utilisateur
+    public class Utilisateur
     {
         public string IdU { get; set; }
 

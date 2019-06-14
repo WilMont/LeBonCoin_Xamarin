@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LeBonCoin_Xamarin.NewFolder1
+namespace LeBonCoin_Xamarin.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PageConnexion : ContentPage

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:LeBonCoin_Xamarin"
-             x:Class="LeBonCoin_Xamarin.MainPage">
+             x:Class="LeBonCoin_Xamarin.Views.MainPage">
 
     <StackLayout>
         
@@ -14,6 +14,39 @@
 
         <Label x:Name="NAppel">0641091509</Label>
 
+        <ListView x:Name="listeAnnonces" HasUnevenRows="True" ItemTapped="ListeAnnonces_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Column="0" Grid.Row="0"
+                                       Text="{Binding Titre}"/>
+                                
+                                <Label Grid.Column="0" Grid.Row="1"
+                                       Text="{Binding Prix, StringFormat='\{0:N2\} €' }"/>
+                                
+                                <Label Grid.Column="0" Grid.Row="2"
+                                       Text="{Binding Categorie}"/>
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </StackLayout>
 
+   
 </ContentPage>

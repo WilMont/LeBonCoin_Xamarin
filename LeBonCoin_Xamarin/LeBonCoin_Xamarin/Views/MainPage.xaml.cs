@@ -1,11 +1,12 @@
-﻿using System;
+﻿using LeBonCoin_Xamarin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace LeBonCoin_Xamarin
+namespace LeBonCoin_Xamarin.Views
 {
     public partial class MainPage : ContentPage
     {
@@ -22,6 +23,12 @@ namespace LeBonCoin_Xamarin
             public MainPage()
             {
                 InitializeComponent();
+
+                listeAnnonces.ItemsSource = Datas.GetInstance().GetListeAnnonces();
+
+                
+
+                //sert pour la barre de recherche
 
                 SearchAnnonceList.ItemsSource = _categories;
 
@@ -40,6 +47,14 @@ namespace LeBonCoin_Xamarin
 
                
             
+
+            }
+
+            //click sur l'annonce
+            private async void ListeAnnonces_ItemTapped(object sender, ItemTappedEventArgs e)
+            {
+                Annonce selectedAnnonce = this.listeAnnonces.SelectedItem as Annonce;
+                await this.Navigation.PushAsync(new PageDetailsAnnonce(selectedAnnonce));
 
             }
 

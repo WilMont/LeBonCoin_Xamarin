@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LeBonCoin_Xamarin.M
+
+namespace LeBonCoin_Xamarin.Models
 {
-    class Datas
+    public class Datas
     {
         #region Singleton
 
@@ -26,12 +27,23 @@ namespace LeBonCoin_Xamarin.M
         {
             _listeAnnonces = new List<Annonce>
             {
+
+                new Annonce
+                {
+                    IdA = "id01",
+                    Titre = "annonce test",
+                    Description = "bla bla bla",
+                    Prix = 15.5f,
+                    NumeroT = "0641091509",
+                    Categorie = "Immobilier"
+            
+                }
                 //binding + condition pour cacher les annonces de l'utilisateur courant
                 //je vais binder des annonces exemples je pense, genre 2 ou 3
             };
         }
 
-        public List<Annonce> GetAnnonces()
+        public List<Annonce> GetListeAnnonces()
         {
             return _listeAnnonces;
         }
