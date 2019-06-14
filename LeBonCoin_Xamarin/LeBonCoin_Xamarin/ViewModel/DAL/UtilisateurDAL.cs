@@ -17,6 +17,8 @@ namespace LeBonCoin_Xamarin.ViewModel.DAL
 
         public ObservableCollection<Utilisateur> Utilisateurs { get; set; }
 
+        public static Utilisateur utilisateurCourant = new Utilisateur();
+
         public UtilisateurDAL()
         {
             database =
@@ -26,6 +28,7 @@ namespace LeBonCoin_Xamarin.ViewModel.DAL
 
             this.Utilisateurs =
               new ObservableCollection<Utilisateur>(database.Table<Utilisateur>());
+            
         }
 
         public IEnumerable<Utilisateur> GetUtilisateurs()
@@ -50,7 +53,7 @@ namespace LeBonCoin_Xamarin.ViewModel.DAL
         {
             lock (collisionLock)
             {
-                if (utilisateurInstance.Id != 0)
+                if (utilisateurInstance == GetUtilisateurs())
                 {
                     database.Update(utilisateurInstance);
                     return utilisateurInstance.Id;
@@ -84,9 +87,11 @@ namespace LeBonCoin_Xamarin.ViewModel.DAL
             {
                 foreach(var utilisateurInstance in this.Utilisateurs)
                 {
-                    if (utilisateurInstance.Login == loginConnexion && utilisateurInstance.MotDePasse == motDePasseConnexion){
+                    if (utilisateurInstance.Login.ToString() == loginConnexion.ToString() && utilisateurInstance.MotDePasse.ToString() == motDePasseConnexion.ToString())
+                    {
+                        utilisateurCourant = utilisateurInstance;
                         condition = true;
-                        App.UtilisateurCourant = utilisateurInstance;
+                        
                     }
                     else
                     {
@@ -94,6 +99,28 @@ namespace LeBonCoin_Xamarin.ViewModel.DAL
                     }
                 }
                 return condition;
+            }
+        }
+
+        public int GetIdUtilisateurCourant(string loginConnexion)
+        {
+            lock (collisionLock)
+            {
+                var query = (from utilisateur in database.Table<Utilisateur>()
+                            where utilisateur.Login == loginConnexion
+                            select utilisateur.Id).Take(1);
+                return Convert.ToInt32(query.FirstOrDefault());
+            }
+        }
+
+        public Utilisateur GetUtilisateurCourant(string loginConnexion)
+        {
+            lock (collisionLock)
+            {
+                var query = (from utilisateur in database.Table<Utilisateur>()
+                             where utilisateur.Login == loginConnexion
+                             select utilisateur).Take(1);
+                return query.FirstOrDefault();
             }
         }
 

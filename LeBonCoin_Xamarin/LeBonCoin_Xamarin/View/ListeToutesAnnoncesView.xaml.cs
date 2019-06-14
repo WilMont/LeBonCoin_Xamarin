@@ -18,9 +18,9 @@ namespace LeBonCoin_Xamarin.View
             InitializeComponent();
         }
 
-        private void Btn_PageCreerAnnonce(object sender, EventArgs e)
+        private void Btn_PageMesAnnonces(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CreerAnnonceView());
+            Navigation.PushAsync(new MesAnnoncesView());
         }
     }
 }

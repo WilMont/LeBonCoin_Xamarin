@@ -10,16 +10,17 @@ using Xamarin.Forms.Xaml;
 namespace LeBonCoin_Xamarin.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CreerAnnonceView : ContentPage
+	public partial class MesAnnoncesView : ContentPage
 	{
-		public CreerAnnonceView ()
+		public MesAnnoncesView ()
 		{
 			InitializeComponent ();
 		}
 
-        private void Btn_PageMesAnnonces(object sender, EventArgs e)
+        private void Btn_PageCreerAnnonce(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MesAnnoncesView());
+            Navigation.PushAsync(new CreerAnnonceView());
         }
+
     }
 }

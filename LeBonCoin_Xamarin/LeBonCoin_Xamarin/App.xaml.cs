@@ -1,5 +1,6 @@
 ﻿using LeBonCoin_Xamarin.Model;
 using LeBonCoin_Xamarin.View;
+using LeBonCoin_Xamarin.ViewModel;
 using System;
 using System.IO;
 using Xamarin.Forms;
@@ -11,13 +12,12 @@ namespace LeBonCoin_Xamarin
     public partial class App : Application
     {
         public static bool EstConnecte { get; set; }
-        public static Utilisateur UtilisateurCourant { get; set; }
 
         public App()
         {
             InitializeComponent();
 
-            if (!EstConnecte || UtilisateurCourant==null)
+            if (!EstConnecte)
             {
                 MainPage = new NavigationPage(new ConnexionView());
             }

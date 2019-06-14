@@ -18,8 +18,8 @@ namespace LeBonCoin_Xamarin.ViewModel
         //Propriétés du formulaire de connexion.
         #region Propriétés formulaire connexion
 
-        // Nom que l'utilisateur rentre dans le champs correspondant.
-        private string _nomEntre;
+        
+        private string _nomEntre; // Nom que l'utilisateur rentre dans le champs correspondant.
         public string NomEntre
         {
             get
@@ -37,8 +37,8 @@ namespace LeBonCoin_Xamarin.ViewModel
             }
         }
 
-        // Prénom que l'utilisateur rentre dans le champs correspondant.
-        private string _prenomEntre;
+        
+        private string _prenomEntre; // Prénom que l'utilisateur rentre dans le champs correspondant.
         public string PrenomEntre
         {
             get
@@ -55,8 +55,8 @@ namespace LeBonCoin_Xamarin.ViewModel
             }
         }
 
-        // Login que l'utilisateur rentre dans le champs correspondant.
-        private string _loginEntre;
+        
+        private string _loginEntre; // Login que l'utilisateur rentre dans le champs correspondant.
         public string LoginEntre
         {
             get
@@ -73,8 +73,8 @@ namespace LeBonCoin_Xamarin.ViewModel
             }
         }
 
-        // Mot de passe que l'utilisateur rentre dans le champs correspondant.
-        private string _motDePasseEntre;
+        
+        private string _motDePasseEntre; // Mot de passe que l'utilisateur rentre dans le champs correspondant.
         public string MotDePasseEntre
         {
             get
@@ -91,8 +91,8 @@ namespace LeBonCoin_Xamarin.ViewModel
             }
         }
 
-        // Confirmation du mot de passe entré.
-        private string _motDePasseEntreConfirmation;
+        
+        private string _motDePasseEntreConfirmation; // Confirmation du mot de passe entré.
         public string MotDePasseEntreConfirmation
         {
             get
@@ -108,16 +108,11 @@ namespace LeBonCoin_Xamarin.ViewModel
                 }
             }
         }
-        #endregion
 
-        public InscriptionViewModel()
+        // La commande pour s'inscrire.
+        private void InscriptionExecute() // Ce que la commande exécute.
         {
-            InscriptionCommand = new Command(InscriptionExecute, CanExecute);
-        }
 
-            private void InscriptionExecute() // Ce que la commande exécute.
-            {
-                
 
             try
             {
@@ -132,18 +127,26 @@ namespace LeBonCoin_Xamarin.ViewModel
                 utilisateurDAL.SauvegarderUtilisateur(utilisateur); // On insère cet utilisateur dans la table correspondante.
                 DependencyService.Get<IMessage>().ShortAlert("Inscription réussie"); // Affichage d'un message de succès.
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                DependencyService.Get<IMessage>().ShortAlert(e.Message);
+                //DependencyService.Get<IMessage>().ShortAlert(e.Message); // Affichage de l'erreur.
                 DependencyService.Get<IMessage>().ShortAlert("Une erreur est survenue"); // Affichage d'un message d'erreur.
             }
-            
-            }
 
-            private bool CanExecute() // Les conditions pour que la commande puisse s'exécuter.
-            {
+        }
+
+        private bool CanExecute() // Les conditions pour que la commande puisse s'exécuter.
+        {
             return true;
-            }
+        }
+
+        #endregion
+
+        public InscriptionViewModel()
+        {
+            InscriptionCommand = new Command(InscriptionExecute, CanExecute);
+        }
+
 
 
 

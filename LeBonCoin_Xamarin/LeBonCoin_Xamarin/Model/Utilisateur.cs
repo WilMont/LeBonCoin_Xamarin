@@ -7,7 +7,7 @@ using System.Text;
 namespace LeBonCoin_Xamarin.Model
 {
     [Table ("Utilisateurs")]
-    public class Utilisateur :INotifyPropertyChanged
+    public class Utilisateur : INotifyPropertyChanged
     {
 
         // L'identifiant unique de l'utilisateur.

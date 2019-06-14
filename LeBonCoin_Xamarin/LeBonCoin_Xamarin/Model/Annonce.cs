@@ -6,7 +6,7 @@ using System.Text;
 
 namespace LeBonCoin_Xamarin.Model
 {
-    [Table("Annonces")]
+    [Table ("Annonces")]
     public class Annonce : INotifyPropertyChanged
     {
         // L'identifiant de l'objet vendu.
@@ -92,9 +92,9 @@ namespace LeBonCoin_Xamarin.Model
         }
 
         // Le nom de la catégorie à laquelle appartient l'objet en vente.
-        private Categorie _categorie;
+        private string _categorie;
         [NotNull]
-        public Categorie Categorie
+        public string Categorie
         {
             get
             {
@@ -108,18 +108,18 @@ namespace LeBonCoin_Xamarin.Model
         }
 
         // L'auteur de l'annonce (le vendeur).
-        private Utilisateur _auteur;
+        private int _auteurId;
         [NotNull]
-        public Utilisateur Auteur
+        public int AuteurId
         {
             get
             {
-                return _auteur;
+                return _auteurId;
             }
             set
             {
-                this._auteur = value;
-                OnPropertyChanged(nameof(Auteur));
+                this._auteurId = value;
+                OnPropertyChanged(nameof(AuteurId));
             }
         }
 

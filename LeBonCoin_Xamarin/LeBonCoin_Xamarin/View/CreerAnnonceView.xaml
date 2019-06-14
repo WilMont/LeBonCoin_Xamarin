@@ -8,7 +8,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
 
-        <Grid>
+        <Grid BackgroundColor="WhiteSmoke">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -34,13 +34,22 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Entry Placeholder="Titre de l'annonce..." Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="11"/>
-            <Editor Placeholder="Description de l'annonce..." Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="11"/>
-            <Entry Placeholder="Prix" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"/>
-            <Entry Placeholder="Téléphone" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5"/>
-            <Picker Title="Catégorie" TextColor="Black" ItemsSource="{Binding ListeCategories}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="11" />
+            <Entry Placeholder="Titre de l'annonce..." Text="{Binding TitreEntre}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="11"/>
+            <Editor Placeholder="Description de l'annonce..." Text="{Binding DescriptionEntre}" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="11"/>
+            <Label Text="Prix" TextColor="Gray" TextDecorations="Underline" FontSize="Medium" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1" VerticalTextAlignment="Center"/>
+            <Entry Placeholder="Prix" Text="{Binding PrixEntre}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4"/>
+            <Entry Placeholder="Téléphone" Text="{Binding TelephoneEntre}" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5"/>
+            <Picker Title="Catégorie" SelectedItem="{Binding CategorieEntre}" TextColor="Black" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="11">
+                <Picker.Items>
+                    <x:String>Console et Jeux-Video</x:String>
+                    <x:String>Immobilier</x:String>
+                    <x:String>Electroménager</x:String>
+                    <x:String>Sport</x:String>
+                    <x:String>Véhicules</x:String>
+                </Picker.Items>
+            </Picker>
 
-            <Button Text="Créer l'annonce" BackgroundColor="#F56B2A" Grid.Row="9" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="11"/>
+            <Button Text="Créer l'annonce" BackgroundColor="#F56B2A" Grid.Row="9" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="11" Command="{Binding CreationAnnonceCommand}" Clicked="Btn_PageMesAnnonces"/>
 
         </Grid>
 
